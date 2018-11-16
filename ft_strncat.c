@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/13 14:33:52 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/13 14:38:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <string.h>
+
+char	*ft_strncat(char *dest, char *src, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j] && j != n)
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
 }

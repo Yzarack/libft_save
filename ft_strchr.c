@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/13 14:02:56 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/13 15:15:08 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <string.h>
+
+char	*strchr(const char *s, int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (s[i] && s[i] != (char)c)
+		i++;
+	if (s[i] != (char)c)
+		return (NULL);
+	return ((char *)s + i);
 }

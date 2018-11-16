@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/09 17:26:16 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/09 17:54:20 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <strings.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	size_t			i;
+	unsigned char	*tab;
+
+	tab = (unsigned char *)s;
+	i = 0;
+	while (i != n)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 }

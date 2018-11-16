@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/16 15:13:36 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/16 15:24:37 by jthierce         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int		ft_space(const char *nptr)
 {
 	int i;
@@ -10,9 +22,9 @@ int		ft_space(const char *nptr)
 
 int		ft_atoi(const char *str)
 {
-int		div;
-int		result;
-int		i;
+	int		i;
+	int		result;
+	int		div;
 
 	i = ft_space(str);
 	result = 0;
@@ -21,8 +33,7 @@ int		i;
 		i++;
 	while (str[i + 1])
 		i++;
-	while (str[i] != '-' && i - ft_space(str) != -1 && 
-	str[i] != '+')
+	while (str[i] != '-' && i - ft_space(str) != -1 && str[i] != '+')
 	{
 		result = div * (str[i] - '0') + result;
 		div *= 10;

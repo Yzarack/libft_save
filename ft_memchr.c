@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/09 20:14:47 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/13 15:13:26 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <string.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	size_t			i;
+	unsigned char	*tab;
+
+	tab = (unsigned char *)s;
+	i = 0;
+	while (i != n)
+	{
+		if (tab[i] == c)
+			return ((void *)s);
+		i++;
+	}
+	return (NULL);
 }

@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/13 14:38:33 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/13 15:28:06 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <string.h>
+
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (src[i] && i != n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (i != n)
+	{
+		while (i != n)
+		{
+			dest[i] = '\0';
+			i++;
+		}
+	}
+	return (dest);
 }

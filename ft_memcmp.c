@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/13 16:45:42 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/13 17:02:15 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+#include <string.h>
+
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (2);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
+	size_t	i;
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	i = 0;
+	while (i != n)
+	{
+		if (str1[i] != str2[i])
+			return ((int)str1[i] - (int)str2[i]);
+		i++;
+	}
 	return (0);
 }
