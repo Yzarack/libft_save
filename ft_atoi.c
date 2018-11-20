@@ -6,11 +6,11 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:13:36 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:24:37 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/17 11:49:15 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_space(const char *nptr)
+static	int		ft_space(const char *nptr)
 {
 	int i;
 

@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:08:00 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:46:20 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/20 15:09:42 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/20 16:06:15 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*new;
-	size_t	i;
+	t_list	*list;
 
-	i = 0;
-	while (s[i])
-		i++;
-	new = (char *)malloc(sizeof(char) * i + 1);
-	if (new == NULL)
+	list = (t_list*)malloc(sizeof(t_list));
+	if (list == NULL)
 		return (NULL);
-	i = 0;
-	while (s[i])
+	if (content == NULL)
 	{
-		new[i] = s[i];
-		i++;
+		list->content = NULL;
+		list->content_size = 0;
 	}
-	new[i] = '\0';
-	return (new);
+	else
+	{
+		list->content = (void *)content;
+		list->content_size = content_size;
+	}
+	list->next = NULL;
+	return (list);
 }

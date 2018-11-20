@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:08:00 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:46:20 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/16 20:04:25 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/16 20:06:00 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
 
-char	*ft_strdup(const char *s)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	char	*new;
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s1[i] == s2[i] && s1[i] && i != n)
 		i++;
-	new = (char *)malloc(sizeof(char) * i + 1);
-	if (new == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		new[i] = s[i];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	if (s1[i] != s2[i])
+		return (0);
+	return (1);
 }

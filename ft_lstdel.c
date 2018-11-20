@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:08:00 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:46:20 by jthierce         ###   ########.fr       */
+/*   Created: 2018/11/20 17:24:00 by jthierce          #+#    #+#             */
+/*   Updated: 2018/11/20 17:41:55 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*new;
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	new = (char *)malloc(sizeof(char) * i + 1);
-	if (new == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	while (*alst != NULL)
 	{
-		new[i] = s[i];
-		i++;
+		del((*alst)->content, (*alst)->content_size);
+		free((*alst));
+		*alst = NULL;
+		*alst = (*alst)->next;
 	}
-	new[i] = '\0';
-	return (new);
 }
