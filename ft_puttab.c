@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddeof.c                                     :+:      :+:    :+:   */
+/*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 18:36:29 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/28 18:36:29 by marvin           ###   ########.fr       */
+/*   Created: 2018/11/28 23:03:20 by marvin            #+#    #+#             */
+/*   Updated: 2018/11/28 23:03:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddeof(t_list **alst, t_list *new)
+void	ft_puttab(char **tab)
 {
-	if (alst != NULL && new != NULL)
+	size_t	i;
+
+	i = 0;
+	while (tab)
 	{
-		while (*alst != NULL)
-		{
-			*alst = (*alst)->next;
-		}
-		*alst = new;
-		new->next = NULL;
+		ft_putstr(tab[1]);
+		i++;
 	}
 }

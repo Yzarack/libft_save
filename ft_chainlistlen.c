@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddeof.c                                     :+:      :+:    :+:   */
+/*   ft_chainlistlen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 18:36:29 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/28 18:36:29 by marvin           ###   ########.fr       */
+/*   Created: 2018/11/29 01:31:49 by marvin            #+#    #+#             */
+/*   Updated: 2018/11/29 01:31:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-void	ft_lstaddeof(t_list **alst, t_list *new)
+size_t	ft_chainlistlen(t_list *lst)
 {
-	if (alst != NULL && new != NULL)
+	t_list *debut;
+	size_t	len;
+
+	len = 1;
+	debut = lst;
+	if (lst == NULL)
+		return (0);
+	lst = lst->next;
+	while (lst != NULL && lst != debut)
 	{
-		while (*alst != NULL)
-		{
-			*alst = (*alst)->next;
-		}
-		*alst = new;
-		new->next = NULL;
+		lst = lst->next;
+		len++;
 	}
+	return (len);
 }
