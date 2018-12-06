@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 18:07:49 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 19:11:38 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/23 15:32:18 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*str;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	while (s[i])
 		i++;
 	str = (char *)malloc(sizeof(char) * (i + 1));

@@ -6,13 +6,13 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 14:02:56 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/13 15:15:08 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/20 20:30:39 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t i;
 

@@ -3,43 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:13:36 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/17 11:49:15 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:18:50 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static	int		ft_space(const char *nptr)
-{
-	int i;
+#include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-	i = 0;
-	while (nptr[i] <= ' ')
+static long	ft_space(const char *str, long i)
+{
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' ||
+			str[i] == '\f' || str[i] == '\n' || str[i] == '\r')
 		i++;
 	return (i);
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
-	int		i;
-	int		result;
-	int		div;
+	long	i;
+	size_t	result;
+	size_t	div;
 
-	i = ft_space(str);
+	i = ft_space(str, 0);
 	result = 0;
 	div = 1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i + 1])
+	if (str[i] < '0' || str[i] > '9')
+		return (0);
+	while (str[i + 1] && (str[i + 1] >= '0' && str[i + 1] <= '9'))
 		i++;
-	while (str[i] != '-' && i - ft_space(str) != -1 && str[i] != '+')
+	while (str[i] != '-' && i - ft_space(str, 0) != -1 && str[i] != '+')
 	{
 		result = div * (str[i] - '0') + result;
 		div *= 10;
 		i--;
 	}
-	if (str[ft_space(str)] == '-')
-		return (result * -1);
-	return (result);
+	if (result > INT64_MAX)
+		return (str[ft_space(str, 0)] == '-' ? 0 : -1);
+	if (str[ft_space(str, 0)] == '-')
+		return ((int)result * -1);
+	return ((int)result);
 }

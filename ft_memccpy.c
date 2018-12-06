@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:45:04 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/09 19:22:46 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/21 10:59:48 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (i != n)
 	{
 		tab2[i] = tab1[i];
-		if (tab1[i] == c)
-			return (dest);
+		if (tab1[i] == (unsigned char)c)
+			return (tab2 + i + 1);
 		i++;
 	}
 	return (NULL);

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strreversesplit.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 00:07:39 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/29 00:07:39 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/29 15:43:01 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
-#include	"libft.h"
+#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_tabinstr(char **tab, char *str, char *separator)
+static char	*ft_tabinstr(char **tab, char *str, char *separator)
 {
 	int i;
 
@@ -27,9 +27,10 @@ char	*ft_tabinstr(char **tab, char *str, char *separator)
 		}
 		i++;
 	}
+	return (str);
 }
 
-char	*ft_strreversesplit(char **tab, char *separator)
+char		*ft_strreversesplit(char **tab, char *separator)
 {
 	size_t	i;
 	size_t	j;

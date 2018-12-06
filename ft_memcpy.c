@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:56:05 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/09 18:39:54 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/21 10:04:43 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	tab1 = (unsigned char *)src;
 	tab2 = (unsigned char *)dest;
 	i = 0;
-	while (i != n)
+	while (i < n)
 	{
 		tab2[i] = tab1[i];
 		i++;

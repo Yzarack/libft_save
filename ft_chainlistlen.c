@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chainlistlen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 01:31:49 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/29 01:31:49 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/29 15:38:44 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 size_t	ft_chainlistlen(t_list *lst)
 {
-	t_list *debut;
+	t_list	*debut;
 	size_t	len;
 
 	len = 1;

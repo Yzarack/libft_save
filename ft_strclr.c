@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 17:06:40 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 17:18:41 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/22 21:35:33 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_strclr(char *s)
 	size_t	i;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	while (s[i])
 	{
 		s[i] = '\0';

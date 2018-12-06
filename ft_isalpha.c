@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:14:47 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:25:10 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:30:16 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (2);
+		return (1);
 	if (c >= 'A' && c <= 'Z')
 		return (1);
 	return (0);

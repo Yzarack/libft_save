@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:46:48 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 19:21:00 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/22 20:38:31 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
+	if (ap == NULL || *ap == NULL)
+		return ;
 	free(*ap);
-	**ap = NULL;
+	*ap = NULL;
 }

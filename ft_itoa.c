@@ -6,13 +6,13 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:47:18 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/19 18:15:23 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/26 18:47:19 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static char	*ft_int_in_str_itoa(int n, char *str, int puis, int neg)
+static char	*ft_int_in_str_itoa(size_t n, char *str, size_t puis, int neg)
 {
 	int		i;
 
@@ -35,31 +35,38 @@ static char	*ft_int_in_str_itoa(int n, char *str, int puis, int neg)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+static int	ft_intisneg(int n, size_t *save_n, int *length)
 {
-	int		length;
-	int		puis;
-	char	*str;
-	int		i;
-	int		neg;
-
-	neg = 1;
-	i = 0;
-	puis = 1;
-	length = 1;
 	if (n < 0)
 	{
-		n *= -1;
-		neg = -1;
-		length++;
+		*save_n = (size_t)n * -1;
+		*length = *length + 1;
+		return (-1);
 	}
-	while ((puis * 10) <= n)
+	return (1);
+}
+
+char		*ft_itoa(int n)
+{
+	int		length;
+	size_t	puis;
+	char	*str;
+	int		neg;
+	size_t	save_n;
+
+	save_n = n;
+	puis = 1;
+	length = 1;
+	neg = ft_intisneg(n, &save_n, &length);
+	if (n == -2147483648)
+		save_n = 2147483648;
+	while ((puis * 10) <= save_n)
 	{
 		length++;
 		puis *= 10;
 	}
 	if (!(str = (char *)malloc(sizeof(char) * (length + 1))))
 		return (NULL);
-	str = ft_int_in_str_itoa(n, str, puis, neg);
+	str = ft_int_in_str_itoa(save_n, str, puis, neg);
 	return (str);
 }

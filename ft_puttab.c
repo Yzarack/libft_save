@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 23:03:20 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/28 23:03:20 by marvin           ###   ########.fr       */
+/*   Updated: 2018/11/30 20:08:59 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_puttab(char **tab)
 	i = 0;
 	while (tab)
 	{
-		ft_putstr(tab[1]);
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
 		i++;
 	}
 }

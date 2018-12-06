@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:45:36 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/19 17:18:46 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/23 19:13:05 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,19 @@ static size_t	ft_word(char const *s, char c)
 	word = 0;
 	while (s[i])
 	{
-		while (s[i] == c || i == 0)
+		while ((s[i] == c && s[i] != '\0') || i == 0)
 		{
 			if ((s[i + 1] != c && s[i + 1] != '\0') || (i == 0 && s[0] != c))
 				word++;
 			i++;
 		}
-		i++;
+		if (s[i] != '\0')
+			i++;
 	}
 	return (word);
 }
 
-static char	**ft_malloc_tab(char const *s, char c, size_t word, char **tab)
+static char		**ft_malloc_tab(char const *s, char c, size_t word, char **tab)
 {
 	size_t	i;
 	size_t	j;
@@ -61,7 +62,7 @@ static char	**ft_malloc_tab(char const *s, char c, size_t word, char **tab)
 	return (tab);
 }
 
-static char	**ft_place_word(char const *s, char c, size_t word, char **tab)
+static char		**ft_place_word(char const *s, char c, size_t word, char **tab)
 {
 	size_t	i;
 	size_t	j;
@@ -89,20 +90,20 @@ static char	**ft_place_word(char const *s, char c, size_t word, char **tab)
 	return (tab);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	size_t	word;
 	char	**tab;
 
+	if (s == NULL)
+		return (NULL);
 	word = ft_word(s, c);
 	if (!(tab = (char**)malloc(sizeof(char *) * (word + 1))))
 		return (NULL);
 	tab = ft_malloc_tab(s, c, word, tab);
 	if (tab == NULL)
 		return (NULL);
-	if (!(tab[word] = (char *)malloc(sizeof(char) * 1)))
-		return (NULL);
-	tab[word][0] = '\0';
+	tab[word] = NULL;
 	tab = ft_place_word(s, c, word, tab);
 	return (tab);
 }

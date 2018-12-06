@@ -6,11 +6,11 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 15:15:04 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 15:15:42 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/20 19:49:51 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c)
+int		ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

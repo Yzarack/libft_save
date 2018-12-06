@@ -6,7 +6,7 @@
 /*   By: jthierce <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:30:30 by jthierce          #+#    #+#             */
-/*   Updated: 2018/11/16 16:42:39 by jthierce         ###   ########.fr       */
+/*   Updated: 2018/11/26 16:00:55 by jthierce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,8 @@
 
 void	ft_strdel(char **as)
 {
-	size_t	i;
-
-	i = 0;
-	while (as[i])
-	{
-		free(as[i]);
-		i++;
-	}
-	free(as);
+	if (as == NULL || *as == NULL)
+		return ;
+	free(*as);
+	*as = NULL;
 }

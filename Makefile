@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jthierce <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: jthierce <jthierce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 17:06:40 by jthierce          #+#    #+#              #
-#    Updated: 2018/11/17 12:49:52 by jthierce         ###   ########.fr        #
+#    Updated: 2018/11/30 16:35:38 by jthierce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,22 +47,48 @@ FILE = ft_atoi.c\
 	   ft_tolower.c\
 	   ft_toupper.c\
 	   ft_strlen.c\
-	   ft_strsub.c
+	   ft_strsub.c\
+	   ft_strtrim.c\
+	   ft_strsplit.c\
+	   ft_strncmp.c\
+	   ft_strjoin.c\
+	   ft_strcmp.c\
+	   ft_putstr_fd.c\
+	   ft_putstr.c\
+	   ft_putnbr_fd.c\
+	   ft_putnbr.c\
+	   ft_putendl_fd.c\
+	   ft_putendl.c\
+	   ft_putchar_fd.c\
+	   ft_putchar.c\
+	   ft_memdel.c\
+	   ft_lstnew.c\
+	   ft_lstmap.c\
+	   ft_lstiter.c\
+	   ft_lstdelone.c\
+	   ft_lstdel.c\
+	   ft_lstadd.c\
+	   ft_itoa.c\
+	   ft_chainlistlen.c\
+	   ft_lstaddeof.c\
+	   ft_strreversesplit.c\
+	   ft_puttab.c\
+	   ft_realloc.c
 OBJ = $(FILE:.c=.o)
 FLAG = -Wextra -Werror -Wall
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 $(OBJ):
-	gcc $(FILE) -c $(FILE)
+	gcc $(FLAG) -c $(FILE)
 
-.PHONY: fclean
+.PHONY: fclean all clean re
 
 clean:
-	rm -rf *.o
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
